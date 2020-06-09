@@ -12,12 +12,34 @@ const styles: (theme: Theme) => StyleRules<string> = theme =>
   createStyles({
         root: {
             flexGrow: 1,
-            padding: theme.spacing(1),
+            padding: theme.spacing(0),
+            margin: "0",
             textAlign: 'center',
-            color: theme.palette.text.secondary
+            alignContent: "center",
+            alignItems: "center",
+            justifyContent: "center",
+            justifyItems: "center",
+            width:350,
+            backgroundColor: theme.palette.text.hint
+        },
+        grid: {
+            padding: theme.spacing(0),
+            textAlign: 'center',
+            justifyContent: "center",
+            justifyItems: "center",
+            margin: "0",
+            backgroundColor: "transparent",
+            maxWidth:"100%",
+            flexBasis:"100%"
+        },
+        gridItem: {
+            padding: theme.spacing(0),
+            justifyContent: "center",
+            justifyItems: "center",
+            margin: "0"
         },
         paper: {
-            padding: theme.spacing(1),
+            padding: theme.spacing(0),
             textAlign: 'center',
             color: theme.palette.text.secondary
         },
@@ -152,10 +174,11 @@ const DialPadCH: React.FC<Props> = (props) => {
                         height:"6rem",            
                         fontSize: '15px',
                         padding: '0',
+                        margin: '0',
                         width:"6rem",
                     }}
                     styleOn= {{
-                        color: "black",
+                        color: "white",
                         backgroundColor: "#00caf2",
                     }}
                     styleOff= {{
@@ -173,53 +196,54 @@ const DialPadCH: React.FC<Props> = (props) => {
             );
         }
     
+        /* <Container className={classes.root} disableGutters fixed maxWidth={"xs"} > */
     return (
-        <Container className={classes.root} disableGutters fixed maxWidth={"xs"}>
-            <Grid container xs={12} spacing={0}>
-                <Box m={0} p={0}>
+        <Grid container className={classes.root} justify="center">
+            <Grid className={classes.grid} container xs={8} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
                     {FormButton(buttons[0])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[1])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[2])}
-                </Box>
+                </Grid>
             </Grid>
-            <Grid container xs={12} spacing={0}>
-                <Box m={0} p={0}>
+            <Grid className={classes.grid} container xs={8} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
                     {FormButton(buttons[3])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[4])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[5])}
-                </Box>
+                </Grid>
             </Grid>
-            <Grid container xs={12} spacing={0}>
-                <Box m={0} p={0}>
+            <Grid className={classes.grid} container xs={8} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
                     {FormButton(buttons[6])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[7])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[8])}
-                </Box>
+                </Grid>
             </Grid>
-            <Grid container xs={12} spacing={0}>
-                <Box m={0} p={0}>
+            <Grid className={classes.grid} container xs={8} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
                     {FormButton(buttons[9])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[10])}
-                </Box>
-                <Box m={0} p={0}>
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[11])}
-                </Box>
+                </Grid>
             </Grid>
-        </Container>
+        </Grid>
     );
 }
 
