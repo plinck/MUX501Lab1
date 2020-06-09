@@ -1,28 +1,111 @@
 {
     "cues": [
         {
-            "type":"string",
-            "event":"21",
-            "trigger":"&change",
-            "logic":"link",
-            "actions":[{"state":"21","type":"string","logic":"link"}]
+            "type": "boolean",
+            "event": "1",
+            "trigger": true,
+            "actions": [{"state":"1","type":"boolean", "logic": "toggle" }]
         },
         {
-        "type": "boolean",
-        "event": "21",
-        "trigger": true,
-        "actions": [{"state":"21","type":"boolean","logic":"set","value":true },
-                    {"state":"22","type":"boolean","logic":"set","value":false},
-                    {"state":"23","type":"boolean","logic":"set","value":false},
-                    {"state":"24","type":"boolean","logic":"set","value":false},
-                    {
-                        "state": "21",
-                        "signal": "21",
-                        "type": "string",
-                        "logic": "set",
-                        "value": "Hit Button 21"
-                    }    
-                ]
+            "type": "boolean",
+            "event": "2",
+            "trigger": true,
+            "actions": [{"state":"2","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "3",
+            "trigger": true,
+            "actions": [{"state":"3","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "4",
+            "trigger": true,
+            "actions": [{"state":"4","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "5",
+            "trigger": true,
+            "actions": [{"state":"5","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "6",
+            "trigger": true,
+            "actions": [{"state":"6","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "7",
+            "trigger": true,
+            "actions": [{"state":"7","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "8",
+            "trigger": true,
+            "actions": [{"state":"8","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "9",
+            "trigger": true,
+            "actions": [{"state":"9","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "10",
+            "trigger": true,
+            "actions": [{"state":"10","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "11",
+            "trigger": true,
+            "actions": [{"state":"11","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "12",
+            "trigger": true,
+            "actions": [{"state":"12","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "13",
+            "trigger": true,
+            "actions": [{"state":"13","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "14",
+            "trigger": true,
+            "actions": [{"state":"14","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "15",
+            "trigger": true,
+            "actions": [{"state":"15","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "21",
+            "trigger": true,
+            "actions": [{"state":"21","type":"boolean","logic":"set","value":true },
+                        {"state":"22","type":"boolean","logic":"set","value":false},
+                        {"state":"23","type":"boolean","logic":"set","value":false},
+                        {"state":"24","type":"boolean","logic":"set","value":false},
+                        {
+                            "state": "21",
+                            "signal": "21",
+                            "type": "string",
+                            "logic": "set",
+                            "value": "Hit Button 21"
+                        }    
+                    ]
         },
         {
             "type": "boolean",
@@ -97,20 +180,6 @@
             "actions": [{"state":"33", "type": "boolean", "logic": "toggle"}]
         },
         {
-            "type":"string",
-            "event":"5",
-            "trigger":"&change",
-            "logic":"link",
-            "actions":[{"state":"5","type":"string","logic":"link"}]
-        },
-        {
-            "type":"string",
-            "event":"1",
-            "trigger":"&change",
-            "logic":"link",
-            "actions":[{"state":"1","type":"string","logic":"link"}]
-        },
-        {
             "type": "boolean",
             "event": "34",
             "trigger": true,
@@ -140,6 +209,50 @@
                 }
             ]
         },      
+
+        {
+            "type":"string",
+            "event":"1",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"1","type":"string","logic":"link"}]
+        },
+        {
+            "type":"string",
+            "event":"2",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"1","type":"string","logic":"link"}]
+        },
+        {
+            "type":"string",
+            "event":"3",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"1","type":"string","logic":"link"}]
+        },
+        {
+            "type":"string",
+            "event":"4",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"1","type":"string","logic":"link"}]
+        },
+        {
+            "type":"string",
+            "event":"5",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"5","type":"string","logic":"link"}]
+        },
+        {
+            "type":"string",
+            "event":"21",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"21","type":"string","logic":"link"}]
+        },
+
         {
             "type": "n",
             "event": "36",

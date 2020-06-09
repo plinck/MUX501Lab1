@@ -54,7 +54,7 @@ const TextFieldCH: React.FC<Props> = (props) => {
 
     const handleChange = (event: any)=> {
         
-        const name = event.target.name;
+        // const name = event.target.name;
         const value = event.target.value;
         console.log(`value: ${value}`);
         CrComLib.publishEvent('string', publishSignalName, value);
@@ -84,7 +84,7 @@ const TextFieldCH: React.FC<Props> = (props) => {
     // const className={allstyles.join(" ")}
     // value is fro state, all else is from props
     return (
-        <TextField {...rest} className={`${classes.textField} ${style} ${myStyle}`}
+        <TextField {...rest} className={`${classes.textField} ${myStyle}`}
             value={value}
             onChange={handleChange}
         >

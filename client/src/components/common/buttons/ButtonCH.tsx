@@ -32,9 +32,9 @@ const styles: (theme: Theme) => StyleRules<string> = theme =>
 interface OwnProps {
     publishSignalName: string,
     subscribeSignalName: string,
-    style?: ClassValue;
-    styleOn?: ClassValue;
-    styleOff?: ClassValue;  
+    style?: any;
+    styleOn?: any;
+    styleOff?: any;  
 }
 // Exposed to user's of component - not styles
 type PublicProps = OwnProps & ButtonProps;
@@ -76,14 +76,21 @@ const ButtonCH: React.FC<Props> = (props) => {
     }, [subscribeSignalName]);
         
     
-    const onStyle = styleOn ? styleOn : classes.on;
-    const offStyle = styleOff ? styleOff : classes.off;
-    const stateStyle = feedback ? onStyle : offStyle;
+    const stateStyle = feedback ? classes.on : classes.off;
 
-    // const className={allstyles.join(" ")}
+    const allStyles=`${classes.root} ${stateStyle}`;
+      
+    let passedStyles: any;
+    if (styleOn) {
+        passedStyles = feedback ? {...style,...styleOn} : {...style,...styleOff};
+    } else {
+        passedStyles = style;
+    }
     // feedback is fro state, all else is from props
     return (
-        <Button {...rest} className={`${classes.root} ${style} ${stateStyle}`}
+        <Button {...rest} 
+            className={allStyles}
+            style={passedStyles}
             onClick={() => onPress(publishSignalName)}
             >
             {rest.children}
