@@ -176,10 +176,10 @@ const DialPadCH: React.FC<Props> = (props) => {
                         borderWidth: '1px',
                         color: '#fff',
                         display: "flex",
-                        height:"6rem",            
+                        height: "3rem",            
                         fontSize: '15px',
                         padding: '0',
-                        margin: '0',
+                        margin: '1px',
                         width:"100%",
                     }}
                     styleOn= {{
