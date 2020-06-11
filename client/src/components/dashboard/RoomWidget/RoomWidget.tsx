@@ -3,15 +3,18 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 import ButtonCH from "../../common/buttons/ButtonCH";
 import TextFieldCH from "../../common/strings/TextFieldCH";
 
-const WeatherWidget = (props:any) => {
+const PlayerWidget = (props:any) => {
     return (
         <Card style={{ height: "100%" }}>
             <CardContent>
                 <Typography variant="h5" style={{ fontStyle: "italic" }}>
+                    Rooms:
+                </Typography>
+                <Typography variant="h5" style={{ fontStyle: "italic" }}>
                     Interlock:
                 </Typography>
+                <TextFieldCH publishSignalName="21" subscribeSignalName="21" />
                 <ButtonCH 
-                    style={{height: '8rem', width: '8rem'}}
                     publishSignalName="21"
                     subscribeSignalName="21"
                     >A-21
@@ -19,10 +22,9 @@ const WeatherWidget = (props:any) => {
                 <ButtonCH publishSignalName="22" subscribeSignalName="22" >B-22</ButtonCH>
                 <ButtonCH publishSignalName="23" subscribeSignalName="23" >C-23</ButtonCH>
                 <ButtonCH publishSignalName="24" subscribeSignalName="24" >D-24</ButtonCH>
-                <TextFieldCH publishSignalName="21" subscribeSignalName="21" />
             </CardContent>
         </Card>
     )
 }
 
-export default WeatherWidget
+export default PlayerWidget

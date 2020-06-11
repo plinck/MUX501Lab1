@@ -9,6 +9,7 @@ import { Container } from '@material-ui/core'
 
 import DialPadWidget from "./DialPadWidget/DialPadWidget";
 import PlayerWidget from './PlayerWidget/PlayerWidget';
+import RoomWidget from './RoomWidget/RoomWidget';
 import ThermostatWidget from './ThermostatWidget/ThermostatWidget';
 import TransportWidget from './TransportsWidget/TransportWidget';
 
@@ -119,10 +120,10 @@ class Dashboard extends React.Component<Props> {
                         </div>
 
                         <div key="4" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 0, y: 6, minW: 4, minH: 6, maxW: 6 }}>
-                            <WeatherWidget />
+                            <RoomWidget />
                         </div>
 
-                        <div key="4" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 4, y: 6, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="5" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 4, y: 6, minW: 4, minH: 6, maxW: 6 }}>
                             <PlayerWidget />
                         </div>
 
