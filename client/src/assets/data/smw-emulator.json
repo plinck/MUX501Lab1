@@ -103,7 +103,7 @@
                             "signal": "21",
                             "type": "string",
                             "logic": "set",
-                            "value": "Hit Button 21"
+                            "value": "Family Room"
                         }    
                     ]
         },
@@ -121,7 +121,7 @@
                     "signal": "21",
                     "type": "string",
                     "logic": "set",
-                    "value": "Hit Button 22"
+                    "value": "Theater"
                 }    
             ]
         },
@@ -139,7 +139,7 @@
                     "signal": "21",
                     "type": "string",
                     "logic": "set",
-                    "value": "Hit Button 23"
+                    "value": "Dining Room"
                 }    
             ]
         },
@@ -157,7 +157,7 @@
                     "signal": "21",
                     "type": "string",
                     "logic": "set",
-                    "value": "Hit Button 24"
+                    "value": "Boat Dock"
                 }    
             ]
         },
