@@ -156,6 +156,11 @@ const DialPadCH: React.FC<Props> = (props) => {
                 symbol : 'chan',
                 publishSignalName: "12",
                 subscribeSignalName: "12"
+            },
+            {
+                symbol : 'ENTER',
+                publishSignalName: "13",
+                subscribeSignalName: "13"
             }
         ]
 
@@ -175,7 +180,7 @@ const DialPadCH: React.FC<Props> = (props) => {
                         fontSize: '15px',
                         padding: '0',
                         margin: '0',
-                        width:"6rem",
+                        width:"100%",
                     }}
                     styleOn= {{
                         color: "white",
@@ -241,6 +246,11 @@ const DialPadCH: React.FC<Props> = (props) => {
                 </Grid>
                 <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[11])}
+                </Grid>
+            </Grid>
+            <Grid className={classes.grid} container xs={8} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={12} spacing={0} >
+                    {FormButton(buttons[12])}
                 </Grid>
             </Grid>
         </Grid>
