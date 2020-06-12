@@ -2,7 +2,6 @@ import React from "react";
 import { WithStyles, createStyles, Theme, withStyles } from "@material-ui/core";
 import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
-import { Container, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import ButtonMST from '../buttons/ButtonMST';
 import PauseCircleOutlineOutlinedIcon from '@material-ui/icons/PauseCircleOutlineOutlined';
@@ -154,7 +153,7 @@ const PlayerPadMST: React.FC<Props> = (props) => {
         /* <Container className={classes.root} disableGutters fixed maxWidth={"xs"} > */
     return (
         <Grid container className={classes.root} justify="center">
-            <Grid className={classes.grid} container xs={8} spacing={0}>
+            <Grid className={classes.grid} container item xs={8} spacing={0}>
                 <Grid className={classes.gridItem} container item xs={3} spacing={0} >
                     {FormButton(buttons[0])}
                 </Grid>
@@ -168,7 +167,7 @@ const PlayerPadMST: React.FC<Props> = (props) => {
                     {FormButton(buttons[3])}
                 </Grid>
             </Grid>
-            <Grid className={classes.grid} container xs={8} spacing={0}>
+            <Grid className={classes.grid} container item xs={8} spacing={0}>
                 <Grid className={classes.gridItem} container item xs={6} spacing={0} >
                     {FormButton(buttons[4])}
                 </Grid>

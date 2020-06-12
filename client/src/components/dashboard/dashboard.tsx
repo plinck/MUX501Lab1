@@ -109,31 +109,31 @@ class Dashboard extends React.Component<Props> {
                             this.onLayoutChange(layout, layouts)
                         }
                     >
-                        <div key="1" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 0, y: 0, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="1" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 0, y: 0, minW: 4, minH: 4, maxW: 6 }}>
                             <DialPadWidget />
                         </div>
                         
-                        <div key="2" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 4, y: 0, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="2" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 4, y: 0, minW: 4, minH: 4, maxW: 6 }}>
                             <TransportWidget />
                         </div>
 
-                        <div key="3" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 8, y: 0, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="3" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 8, y: 0, minW: 4, minH: 4, maxW: 6 }}>
                             <ThermostatWidget />
                         </div>
 
-                        <div key="4" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 0, y: 6, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="4" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 0, y: 6, minW: 4, minH: 4, maxW: 6 }}>
                             <RoomWidget />
                         </div>
 
-                        <div key="5" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 4, y: 6, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="5" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 4, x: 4, y: 6, minW: 4, minH: 4, maxW: 6 }}>
                             <StockWidget />
                         </div>
 
-                        <div key="6" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 8, y: 6, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="6" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 4, x: 8, y: 6, minW: 4, minH: 4, maxW: 6 }}>
                             <PlayerWidget />
                         </div>
 
-                        <div key="7" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 6, x: 0, y: 12, minW: 4, minH: 6, maxW: 6 }}>
+                        <div key="7" className={this.props.width <= 600 ? classes.mobile : null} data-grid={{ w: 4, h: 4, x: 0, y: 12, minW: 4, minH: 3, maxW: 6 }}>
                             <TextWidget />
                         </div>
 

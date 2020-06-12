@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { WithStyles, createStyles, Theme, withStyles } from "@material-ui/core";
-import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
 import Button, { ButtonProps } from "@material-ui/core/Button";
 

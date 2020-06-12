@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { WithStyles, createStyles, Theme, withStyles } from "@material-ui/core";
 import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Slider, { SliderProps } from '@material-ui/core/Slider';
-import Button from "@material-ui/core/Button";
-import VolumeDown from '@material-ui/icons/VolumeDown';
-import VolumeUp from '@material-ui/icons/VolumeUp';
 
 declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
 const HEIGHT = "200px";
@@ -88,7 +83,7 @@ const VerticalSliderMST: React.FC<Props> = (props) => {
             newPercentValue = MAXPERCENT;
         }
         
-        console.log(`setRangeSlider: value ${newValue}. percent value ${newPercentValue}`);
+        // console.log(`setRangeSlider: value ${newValue}. percent value ${newPercentValue}`);
         setSliderValue(newPercentValue);
     }
       
@@ -102,7 +97,7 @@ const VerticalSliderMST: React.FC<Props> = (props) => {
             newPercentValue = MAXPERCENT;
         }
         let newValue = Math.round((newPercentValue /100)*(MAXVALUE-MINVALUE));
-        console.log(`handleChange: ${signalName}, value ${newValue}. percent value ${newPercentValue}`);
+        // console.log(`handleChange: ${signalName}, value ${newValue}. percent value ${newPercentValue}`);
 
         setSliderValue(percent);
         CrComLib.publishEvent('number', signalName, newValue);
@@ -113,22 +108,6 @@ const VerticalSliderMST: React.FC<Props> = (props) => {
         setSliderValue(newValue);
     };
     
-
-    const handleClick = (signalName: string, percent: number) => {     
-        // convert to MINPERCENT MAXPERCENT range for crestron
-        let newPercentValue = percent;
-        if (newPercentValue < MINPERCENT) {
-            newPercentValue = MINPERCENT;
-        } else if (newPercentValue > MAXPERCENT) {
-            newPercentValue = MAXPERCENT;
-        }
-        let newValue = Math.round((newPercentValue /100)*(MAXVALUE-MINVALUE));
-        console.log(`handleClick: ${signalName}, value ${newValue}. percent value ${newPercentValue}`);
-
-        setSliderValue(newPercentValue);
-        CrComLib.publishEvent('number', signalName, newValue);
-    };
-
     useEffect(() => {
         let subscriptionId: string = "";
         if (subscribeSignalName) {

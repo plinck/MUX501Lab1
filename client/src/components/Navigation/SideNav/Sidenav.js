@@ -16,7 +16,6 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 // import EqualizerIcon from '@material-ui/icons/Equalizer';
 import TimerIcon from "@material-ui/icons/Timer";
 import MailIcon from "@material-ui/icons/Mail";
-import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 
 const drawerWidth = 240;

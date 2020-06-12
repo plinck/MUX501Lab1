@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import { Card, CardContent, Tooltip } from '@material-ui/core';
 import LaunchIcon from '@material-ui/icons/Launch';
-import VerticalSliderMST from '../../common/sliders/VeritcalSliderMST';
+import YahooQuotes from '../../Stocks/YahooQuotes';
 
-const ThermostatWidget = (props:any) => {
-    const [openThermostats, setOpenThermostats] = useState(false)
+const StockWidget = (props:any) => {
 
     const handleClickThermostats = () => {
         // setOpenThermostats(true)
@@ -28,7 +27,7 @@ const ThermostatWidget = (props:any) => {
                         </Tooltip>
                     </div>
                     <div>
-                        Place Holder for Hackathon - Stock Prices via REST API
+                        <YahooQuotes />
                     </div>
                 </Box>   
             </CardContent>
@@ -36,4 +35,4 @@ const ThermostatWidget = (props:any) => {
     )
 }
 
-export default ThermostatWidget
+export default StockWidget

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import { Card, CardContent, Tooltip } from '@material-ui/core';
 import LaunchIcon from '@material-ui/icons/Launch';
 import VerticalSliderMST from '../../common/sliders/VeritcalSliderMST';
 
 const ThermostatWidget = (props:any) => {
-    const [openThermostats, setOpenThermostats] = useState(false)
+    // const [openThermostats, setOpenThermostats] = useState(false)
 
     const handleClickThermostats = () => {
         // setOpenThermostats(true)
