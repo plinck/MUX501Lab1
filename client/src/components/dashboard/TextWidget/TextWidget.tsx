@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import TextFieldCH from "../../common/strings/TextFieldMST";
+import TextFieldMST from "../../common/strings/TextFieldMST";
 
 const PlayerWidget = (props:any) => {
     return (
@@ -9,7 +9,7 @@ const PlayerWidget = (props:any) => {
                 <Typography variant="h5" style={{ fontStyle: "italic" }}>
                     Text:
                 </Typography>
-                <TextFieldCH 
+                <TextFieldMST 
                     label="Text Field"
                     placeholder="Field Value"
                     variant="outlined"
@@ -19,8 +19,8 @@ const PlayerWidget = (props:any) => {
                     style={{height: '8rem', width: '8rem'}}
                     publishSignalName="5"
                     subscribeSignalName="5" >
-                </TextFieldCH>
-                <TextFieldCH 
+                </TextFieldMST>
+                <TextFieldMST 
                     label="Text Field"
                     placeholder="Field Value"
                     variant="outlined"
@@ -30,8 +30,8 @@ const PlayerWidget = (props:any) => {
                     style={{height: '8rem'}}
                     publishSignalName="1"
                     subscribeSignalName="1" >
-                </TextFieldCH>
-                <TextFieldCH 
+                </TextFieldMST>
+                <TextFieldMST 
                     label="Text Field"
                     placeholder="Field Value"
                     variant="outlined"
@@ -41,8 +41,8 @@ const PlayerWidget = (props:any) => {
                     style={{height: '8rem'}}
                     publishSignalName="2"
                     subscribeSignalName="2" >
-                </TextFieldCH>
-                <TextFieldCH 
+                </TextFieldMST>
+                <TextFieldMST 
                     label="Text Field"
                     placeholder="Field Value"
                     variant="outlined"
@@ -52,8 +52,8 @@ const PlayerWidget = (props:any) => {
                     style={{height: '8rem'}}
                     publishSignalName="3"
                     subscribeSignalName="3" >
-                </TextFieldCH>
-                <TextFieldCH 
+                </TextFieldMST>
+                <TextFieldMST 
                     label="Text Field"
                     placeholder="Field Value"
                     variant="outlined"
@@ -63,7 +63,7 @@ const PlayerWidget = (props:any) => {
                     style={{height: '8rem'}}
                     publishSignalName="3"
                     subscribeSignalName="3" >
-                </TextFieldCH>
+                </TextFieldMST>
             </CardContent>
         </Card>
     )

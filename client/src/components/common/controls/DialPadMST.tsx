@@ -169,26 +169,16 @@ const DialPadMST: React.FC<Props> = (props) => {
                 <ButtonMST {...rest}
                     style={{                        
                         alignItems: "center",                
-                        backgroundColor: "#bbdefb",
                         borderColor: '#4d4d4d #000 #000 #4d4d4d',
                         borderRadius: "0.5rem",
                         borderStyle: 'solid',
                         borderWidth: '1px',
-                        color: "grey",
                         display: "flex",
                         height: "3rem",            
                         fontSize: '15px',
                         padding: '0',
                         margin: '1px',
                         width:"100%",
-                    }}
-                    styleOff= {{
-                        color: "grey",
-                        backgroundColor: "#bbdefb",
-                    }}
-                    styleOn= {{
-                        color: "white",
-                        backgroundColor: "#1e77b4",
                     }}
 
                     publishSignalName={`${button.publishSignalName}`}

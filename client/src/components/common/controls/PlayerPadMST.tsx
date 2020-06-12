@@ -5,11 +5,12 @@ import { StyleRules } from "@material-ui/core/styles";
 import { Container, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import ButtonMST from '../buttons/ButtonMST';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import DoneIcon from '@material-ui/icons/Done';
+import PauseCircleOutlineOutlinedIcon from '@material-ui/icons/PauseCircleOutlineOutlined';
+import FastRewindOutlinedIcon from '@material-ui/icons/FastRewindOutlined';
+import ReplayOutlinedIcon from '@material-ui/icons/ReplayOutlined';
+import FastForwardOutlinedIcon from '@material-ui/icons/FastForwardOutlined';
+import Forward30OutlinedIcon from '@material-ui/icons/Forward30Outlined';
+import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
 
 const styles: (theme: Theme) => StyleRules<string> = theme =>
   createStyles({
@@ -73,7 +74,7 @@ type PublicProps = OwnProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
 
-const TransportPadMST: React.FC<Props> = (props) => {    
+const PlayerPadMST: React.FC<Props> = (props) => {    
     // decontruct props  - 
     // styles HOC, OwnProps, parent props passed
     const {classes,
@@ -88,32 +89,38 @@ const TransportPadMST: React.FC<Props> = (props) => {
         publishSignalName?: string;
         subscribeSignalName?: string;
     }
+
     const buttons: Array<MyButton> =
         [
             {
-                icon   : <ArrowDropUpIcon />,
-                publishSignalName: "101",
-                subscribeSignalName: "101"
+                icon   : <FastRewindOutlinedIcon />,
+                publishSignalName: "111",
+                subscribeSignalName: "111"
             },
             {
-                icon   : <ArrowLeftIcon />,
-                publishSignalName: "102",
-                subscribeSignalName: "102"
+                icon   : <PlayCircleOutlineOutlinedIcon />,
+                publishSignalName: "112",
+                subscribeSignalName: "112"
             },
             {
-                icon   : <DoneIcon />,
-                publishSignalName: "103",
-                subscribeSignalName: "103"
+                icon   : <PauseCircleOutlineOutlinedIcon />,
+                publishSignalName: "113",
+                subscribeSignalName: "113"
             },
             {
-                icon   : <ArrowRightIcon />,
-                publishSignalName: "104",
-                subscribeSignalName: "104"
+                icon   : <FastForwardOutlinedIcon />,
+                publishSignalName: "114",
+                subscribeSignalName: "114"
             },
             {
-                icon   : <ArrowDropDownIcon />,
-                publishSignalName: "105",
-                subscribeSignalName: "105"
+                icon   : <ReplayOutlinedIcon />,
+                publishSignalName: "115",
+                subscribeSignalName: "115"
+            },
+            {
+                icon   : <Forward30OutlinedIcon />,
+                publishSignalName: "115",
+                subscribeSignalName: "115"
             }
         ]
 
@@ -148,28 +155,29 @@ const TransportPadMST: React.FC<Props> = (props) => {
     return (
         <Grid container className={classes.root} justify="center">
             <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={12} spacing={0} >
+                <Grid className={classes.gridItem} container item xs={3} spacing={0} >
                     {FormButton(buttons[0])}
                 </Grid>
-            </Grid>
-            <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
+                <Grid className={classes.gridItem} container item xs={3} spacing={0}>
                     {FormButton(buttons[1])}
                 </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={3} spacing={0}>
                     {FormButton(buttons[2])}
                 </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={3} spacing={0}>
                     {FormButton(buttons[3])}
                 </Grid>
             </Grid>
             <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={12} spacing={0} >
+                <Grid className={classes.gridItem} container item xs={6} spacing={0} >
                     {FormButton(buttons[4])}
+                </Grid>
+                <Grid className={classes.gridItem} container item xs={6} spacing={0} >
+                    {FormButton(buttons[5])}
                 </Grid>
             </Grid>
         </Grid>
     );
 }
 
-export default withStyles(styles)(TransportPadMST) as React.ComponentType<PublicProps>;
+export default withStyles(styles)(PlayerPadMST) as React.ComponentType<PublicProps>;

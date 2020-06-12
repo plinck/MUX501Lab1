@@ -238,7 +238,75 @@
                     "offset": 1000
                 }
             ]
-        },      
+        },    
+        
+        {
+            "type": "boolean",
+            "event": "101",
+            "trigger": true,
+            "actions": [{"state":"101","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "102",
+            "trigger": true,
+            "actions": [{"state":"102","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "103",
+            "trigger": true,
+            "actions": [{"state":"103","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "104",
+            "trigger": true,
+            "actions": [{"state":"104","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "105",
+            "trigger": true,
+            "actions": [{"state":"105","type":"boolean", "logic": "pulse" }]
+        },
+
+        {
+            "type": "boolean",
+            "event": "111",
+            "trigger": true,
+            "actions": [{"state":"111","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "112",
+            "trigger": true,
+            "actions": [{"state":"112","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "113",
+            "trigger": true,
+            "actions": [{"state":"113","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "114",
+            "trigger": true,
+            "actions": [{"state":"114","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "115",
+            "trigger": true,
+            "actions": [{"state":"115","type":"boolean", "logic": "pulse" }]
+        },
+        {
+            "type": "boolean",
+            "event": "116",
+            "trigger": true,
+            "actions": [{"state":"116","type":"boolean", "logic": "pulse" }]
+        },
 
         {
             "type":"string",
