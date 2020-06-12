@@ -4,9 +4,12 @@ import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
 import { Container, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import ButtonCH from '../buttons/ButtonCH';
-import Add from '@material-ui/icons/Add';
-import Remove from '@material-ui/icons/Remove';
+import ButtonMST from '../buttons/ButtonMST';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import DoneIcon from '@material-ui/icons/Done';
 
 const styles: (theme: Theme) => StyleRules<string> = theme =>
   createStyles({
@@ -20,7 +23,7 @@ const styles: (theme: Theme) => StyleRules<string> = theme =>
             justifyContent: "center",
             justifyItems: "center",
             width:350,
-            backgroundColor: theme.palette.text.hint
+            backgroundColor: "f2f2f2"
         },
         grid: {
             padding: theme.spacing(0),
@@ -70,7 +73,7 @@ type PublicProps = OwnProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
 
-const DialPadCH: React.FC<Props> = (props) => {    
+const TransportPadMST: React.FC<Props> = (props) => {    
     // decontruct props  - 
     // styles HOC, OwnProps, parent props passed
     const {classes,
@@ -79,7 +82,7 @@ const DialPadCH: React.FC<Props> = (props) => {
     } = props;
 
     type MyButton = {
-        symbol: string;
+        symbol?: string;
         alias?: string;
         icon?: JSX.Element;
         publishSignalName?: string;
@@ -88,107 +91,57 @@ const DialPadCH: React.FC<Props> = (props) => {
     const buttons: Array<MyButton> =
         [
             {
-                symbol : '1',
+                icon   : <ArrowDropUpIcon />,
                 publishSignalName: "1",
                 subscribeSignalName: "1"
             },
             {
-                symbol : '2',
-                alias  : 'abc',
+                icon   : <ArrowLeftIcon />,
                 publishSignalName: "2",
                 subscribeSignalName: "2"
             },
             {
-                symbol : '3',
-                alias  : 'def',
+                icon   : <DoneIcon />,
                 publishSignalName: "3",
                 subscribeSignalName: "3"
             },
             {
-                symbol : '4',
-                alias  : 'ghi',
+                icon   : <ArrowRightIcon />,
                 publishSignalName: "4",
                 subscribeSignalName: "4"
             },
             {
-                symbol : '5',
-                alias  : 'jkl',
+                icon   : <ArrowDropDownIcon />,
                 publishSignalName: "5",
                 subscribeSignalName: "5"
-            },
-            {
-                symbol : '6',
-                alias  : 'mno',
-                publishSignalName: "6",
-                subscribeSignalName: "6"
-            },
-            {
-                symbol : '7',
-                alias  : 'pqrs',
-                publishSignalName: "7",
-                subscribeSignalName: "7"
-            },
-            {
-                symbol : '8',
-                alias  : 'tuv',
-                publishSignalName: "8",
-                subscribeSignalName: "8"
-            },
-            {
-                symbol : '9',
-                alias  : 'wxyz',
-                publishSignalName: "9",
-                subscribeSignalName: "9"
-            },
-            {
-                icon   : <Add />,
-                symbol : 'chan',
-                publishSignalName: "10",
-                subscribeSignalName: "10"
-            },
-            {
-                symbol : '0',
-                publishSignalName: "11",
-                subscribeSignalName: "11"
-            },
-            {
-                icon   : <Remove />,
-                symbol : 'chan',
-                publishSignalName: "12",
-                subscribeSignalName: "12"
-            },
-            {
-                symbol : 'ENTER',
-                publishSignalName: "13",
-                subscribeSignalName: "13"
             }
         ]
 
         function FormButton(button: MyButton) {
             return (
-                <ButtonCH {...rest}
+                <ButtonMST {...rest}
                     style={{                        
                         alignItems: "center",                
-                        backgroundColor: "#00caf2",
+                        backgroundColor: "#bbdefb",
                         borderColor: '#4d4d4d #000 #000 #4d4d4d',
                         borderRadius: "0.5rem",
                         borderStyle: 'solid',
                         borderWidth: '1px',
-                        color: '#fff',
+                        color: "grey",
                         display: "flex",
-                        height:"6rem",            
+                        height: "4rem",            
                         fontSize: '15px',
                         padding: '0',
-                        margin: '0',
+                        margin: '1px',
                         width:"100%",
+                    }}
+                    styleOff= {{
+                        color: "grey",
+                        backgroundColor: "#bbdefb",
                     }}
                     styleOn= {{
                         color: "white",
-                        backgroundColor: "#00caf2",
-                    }}
-                    styleOff= {{
-                        color: "black",
-                        backgroundColor: "transparent",
+                        backgroundColor: "#1e77b4",
                     }}
 
                     publishSignalName={`${button.publishSignalName}`}
@@ -197,7 +150,7 @@ const DialPadCH: React.FC<Props> = (props) => {
                         {button.symbol}
                         <br></br>
                         {!!button.alias && button.alias}
-                </ButtonCH>
+                </ButtonMST>
             );
         }
     
@@ -205,56 +158,28 @@ const DialPadCH: React.FC<Props> = (props) => {
     return (
         <Grid container className={classes.root} justify="center">
             <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
+                <Grid className={classes.gridItem} container item xs={12} spacing={0} >
                     {FormButton(buttons[0])}
                 </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
+            </Grid>
+            <Grid className={classes.grid} container xs={8} spacing={0}>
+                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
                     {FormButton(buttons[1])}
                 </Grid>
                 <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[2])}
                 </Grid>
-            </Grid>
-            <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
+                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
                     {FormButton(buttons[3])}
-                </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
-                    {FormButton(buttons[4])}
-                </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
-                    {FormButton(buttons[5])}
-                </Grid>
-            </Grid>
-            <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
-                    {FormButton(buttons[6])}
-                </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
-                    {FormButton(buttons[7])}
-                </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
-                    {FormButton(buttons[8])}
-                </Grid>
-            </Grid>
-            <Grid className={classes.grid} container xs={8} spacing={0}>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0} >
-                    {FormButton(buttons[9])}
-                </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
-                    {FormButton(buttons[10])}
-                </Grid>
-                <Grid className={classes.gridItem} container item xs={4} spacing={0}>
-                    {FormButton(buttons[11])}
                 </Grid>
             </Grid>
             <Grid className={classes.grid} container xs={8} spacing={0}>
                 <Grid className={classes.gridItem} container item xs={12} spacing={0} >
-                    {FormButton(buttons[12])}
+                    {FormButton(buttons[4])}
                 </Grid>
             </Grid>
         </Grid>
     );
 }
 
-export default withStyles(styles)(DialPadCH) as React.ComponentType<PublicProps>;
+export default withStyles(styles)(TransportPadMST) as React.ComponentType<PublicProps>;

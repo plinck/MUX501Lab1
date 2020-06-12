@@ -40,7 +40,7 @@ interface OwnProps {
 type PublicProps = OwnProps & ButtonProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
-const ButtonCH: React.FC<Props> = (props) => {    
+const ButtonMST: React.FC<Props> = (props) => {    
     // decontruct props  - 
     // styles HOC, OwnProps, parent props passed
     const {classes,
@@ -98,4 +98,4 @@ const ButtonCH: React.FC<Props> = (props) => {
     );
 };
 
-export default withStyles(styles)(ButtonCH) as React.ComponentType<PublicProps>;
+export default withStyles(styles)(ButtonMST) as React.ComponentType<PublicProps>;

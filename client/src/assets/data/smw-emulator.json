@@ -103,7 +103,7 @@
                             "signal": "21",
                             "type": "string",
                             "logic": "set",
-                            "value": "Hit Button 21"
+                            "value": "Family Room"
                         }    
                     ]
         },
@@ -121,7 +121,7 @@
                     "signal": "21",
                     "type": "string",
                     "logic": "set",
-                    "value": "Hit Button 22"
+                    "value": "Theater"
                 }    
             ]
         },
@@ -139,7 +139,7 @@
                     "signal": "21",
                     "type": "string",
                     "logic": "set",
-                    "value": "Hit Button 23"
+                    "value": "Dining Room"
                 }    
             ]
         },
@@ -157,7 +157,7 @@
                     "signal": "21",
                     "type": "string",
                     "logic": "set",
-                    "value": "Hit Button 24"
+                    "value": "Boat Dock"
                 }    
             ]
         },
@@ -203,6 +203,36 @@
                 {
                     "state": "36",
                     "signal": "36",
+                    "type": "number",
+                    "logic": "decrement",
+                    "offset": 1000
+                }
+            ]
+        },      
+        {
+            "type": "boolean",
+            "event": "39",
+            "trigger": true,
+            "actions": [
+                {"state":"39","type":"boolean","logic":"pulse"},
+                {
+                    "state": "37",
+                    "signal": "37",
+                    "type": "number",
+                    "logic": "decrement",
+                    "offset": 1000
+                }
+            ]
+        },      
+        {
+            "type": "boolean",
+            "event": "38",
+            "trigger": true,
+            "actions": [
+                {"state":"38","type":"boolean","logic":"pulse"},
+                {
+                    "state": "37",
+                    "signal": "37",
                     "type": "number",
                     "logic": "decrement",
                     "offset": 1000
@@ -264,6 +294,18 @@
                     "logic": "link"
                 }
             ]
+        },
+        {
+            "type": "n",
+            "event": "39",
+            "trigger": "&change",
+            "actions": [
+                {
+                    "state": "39",
+                    "type": "n",
+                    "logic": "link"
+                }
+            ]
         }
     ],
     "onStart": [ {"state": "21", "type":"boolean", "value":true },
@@ -271,6 +313,11 @@
                  {"state":"2", "type":"string", "value":"<span style='color: blue'><b>Dynamic</b><br/>Icon</style>"},
                  {"state":"3", "type":"string", "value":"./assets/images/logo.avg"},
                  {"state":"4", "type":"string", "value":"Serial Join 4 text telling a long story"},
-                 {"state":"36", "type":"number", "value":20000}
+                 {"state":"36", "type":"number", "value":20000},
+                 {"state":"39", "type":"number", "value":46500},
+                 {"state":"42", "type":"number", "value":30500},
+                 {"state":"45", "type":"number", "value":56500},
+                 {"state":"48", "type":"number", "value":46000},
+                 {"state":"51", "type":"number", "value":35000}
     ]
 }

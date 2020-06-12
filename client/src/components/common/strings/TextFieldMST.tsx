@@ -39,7 +39,7 @@ interface OwnProps {
 type PublicProps = OwnProps & TextFieldProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
-const TextFieldCH: React.FC<Props> = (props) => {    
+const TextFieldMST: React.FC<Props> = (props) => {    
     // decontruct props  - 
     // styles HOC, OwnProps, parent props passed
     const {classes,
@@ -94,4 +94,4 @@ const TextFieldCH: React.FC<Props> = (props) => {
     );
 };
 
-export default withStyles(styles)(TextFieldCH) as React.ComponentType<PublicProps>;
+export default withStyles(styles)(TextFieldMST) as React.ComponentType<PublicProps>;
