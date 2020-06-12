@@ -10,7 +10,7 @@ import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 
 declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
-const HEIGHT = 250;
+const HEIGHT = "200px";
 const MINPERCENT = 0;
 const MAXPERCENT = 100;
 const MINVALUE = 0;
@@ -20,11 +20,14 @@ const styles: (theme: Theme) => StyleRules<string> = theme =>
   createStyles({
     root: {
         height: HEIGHT,
+        width: "100%",
+        margin: "2px",
+        padding: "2px"
       }
   });
 
-  function valuetext(value: number) {
-    return `${value}°F`;
+  function valuetext(sliderValue: number) {
+    return `${sliderValue}°F`;
   }
 
   const marks = [
@@ -33,19 +36,22 @@ const styles: (theme: Theme) => StyleRules<string> = theme =>
       label: '0°F',
     },
     {
+      value: 32,
+      label: '32°F',
+    },
+    {
       value: 68,
-      label: '68',
+      label: '68°F',
     },
     {
       value: 77,
-      label: '98°F',
+      label: '77°F',
     },
     {
-      value: 212,
-      label: '212°F',
+      value: 100,
+      label: '100°F',
     },
-  ];
-  
+  ];  
 // Just my own custom/extended props
 
 interface OwnProps {
@@ -69,7 +75,7 @@ const VerticalSliderMST: React.FC<Props> = (props) => {
     } = props;
 
     // State
-    const [sliderValue, setSliderValue] = useState(30);
+    const [sliderValue, setSliderValue] = useState(71);
 
     // Keep range 0-100%
     const setRangeSlider = (value: number) => {
@@ -135,9 +141,8 @@ const VerticalSliderMST: React.FC<Props> = (props) => {
     }, [subscribeSignalName]);
         
     return (
-        <Slider {...rest} className={` ${style}`} value={sliderValue}
+        <Slider {...rest} style={{ height: "200px", margin: "10px 20px 10px 20px" }} className={` ${style}`} value={sliderValue}
             orientation="vertical"
-            defaultValue={[68, 77]}
             min={MINPERCENT}
             max={MAXPERCENT}
             onChange={(e, val) => handleRawChange(e, publishSignalName, val as number)} 

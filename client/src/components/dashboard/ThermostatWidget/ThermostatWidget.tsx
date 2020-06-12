@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import { Card, CardContent, Tooltip } from '@material-ui/core';
 import LaunchIcon from '@material-ui/icons/Launch';
-import VolumeControlMST from '../../common/sliders/VolumeControlMST';
+import VerticalSliderMST from '../../common/sliders/VeritcalSliderMST';
 
 const ThermostatWidget = (props:any) => {
     const [openThermostats, setOpenThermostats] = useState(false)
@@ -27,7 +27,14 @@ const ThermostatWidget = (props:any) => {
                             </div>
                         </Tooltip>
                     </div>
-                    <VolumeControlMST orientation="horizontal" publishSignalName="36" subscribeSignalName="36"></VolumeControlMST>
+                    <div>
+                        <VerticalSliderMST orientation="vertical" publishSignalName="39" subscribeSignalName="39"></VerticalSliderMST>
+                        <VerticalSliderMST orientation="vertical" publishSignalName="42" subscribeSignalName="42"></VerticalSliderMST>
+                        <VerticalSliderMST orientation="vertical" publishSignalName="45" subscribeSignalName="45"></VerticalSliderMST>
+                        <VerticalSliderMST orientation="vertical" publishSignalName="48" subscribeSignalName="48"></VerticalSliderMST>
+                        <VerticalSliderMST orientation="vertical" publishSignalName="48" subscribeSignalName="48"></VerticalSliderMST>
+                        <VerticalSliderMST orientation="vertical" publishSignalName="51" subscribeSignalName="51"></VerticalSliderMST>
+                    </div>
                 </Box>   
             </CardContent>
         </Card> 
