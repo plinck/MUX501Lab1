@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import ButtonCH from "../../common/buttons/ButtonCH";
-import TextFieldCH from "../../common/strings/TextFieldCH";
+import ButtonMST from "../../common/buttons/ButtonMST";
+import TextFieldMST from "../../common/strings/TextFieldMST";
 
 const PlayerWidget = (props:any) => {
     return (
@@ -10,15 +10,15 @@ const PlayerWidget = (props:any) => {
                 <Typography variant="h5" style={{ fontStyle: "italic" }}>
                     Rooms:
                 </Typography>
-                <TextFieldCH publishSignalName="21" subscribeSignalName="21" />
-                <ButtonCH 
+                <TextFieldMST publishSignalName="21" subscribeSignalName="21" />
+                <ButtonMST 
                     publishSignalName="21"
                     subscribeSignalName="21"
                     >Family
-                </ButtonCH>
-                <ButtonCH publishSignalName="22" subscribeSignalName="22" >Theater</ButtonCH>
-                <ButtonCH publishSignalName="23" subscribeSignalName="23" >Dining</ButtonCH>
-                <ButtonCH publishSignalName="24" subscribeSignalName="24" >Boat Dock</ButtonCH>
+                </ButtonMST>
+                <ButtonMST publishSignalName="22" subscribeSignalName="22" >Theater</ButtonMST>
+                <ButtonMST publishSignalName="23" subscribeSignalName="23" >Dining</ButtonMST>
+                <ButtonMST publishSignalName="24" subscribeSignalName="24" >Boat Dock</ButtonMST>
             </CardContent>
         </Card>
     )

@@ -4,7 +4,7 @@ import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
 import { Container, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import ButtonCH from '../buttons/ButtonCH';
+import ButtonMST from '../buttons/ButtonMST';
 import Add from '@material-ui/icons/Add';
 import Remove from '@material-ui/icons/Remove';
 
@@ -70,7 +70,7 @@ type PublicProps = OwnProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
 
-const DialPadCH: React.FC<Props> = (props) => {    
+const DialPadMST: React.FC<Props> = (props) => {    
     // decontruct props  - 
     // styles HOC, OwnProps, parent props passed
     const {classes,
@@ -166,7 +166,7 @@ const DialPadCH: React.FC<Props> = (props) => {
 
         function FormButton(button: MyButton) {
             return (
-                <ButtonCH {...rest}
+                <ButtonMST {...rest}
                     style={{                        
                         alignItems: "center",                
                         backgroundColor: "#bbdefb",
@@ -197,7 +197,7 @@ const DialPadCH: React.FC<Props> = (props) => {
                         {button.symbol}
                         <br></br>
                         {!!button.alias && button.alias}
-                </ButtonCH>
+                </ButtonMST>
             );
         }
     
@@ -257,4 +257,4 @@ const DialPadCH: React.FC<Props> = (props) => {
     );
 }
 
-export default withStyles(styles)(DialPadCH) as React.ComponentType<PublicProps>;
+export default withStyles(styles)(DialPadMST) as React.ComponentType<PublicProps>;

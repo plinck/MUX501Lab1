@@ -35,7 +35,7 @@ type PublicProps = OwnProps & SliderProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
 
-const VolumeControlCH: React.FC<Props> = (props) => {    
+const SliderMST: React.FC<Props> = (props) => {    
     // decontruct props  - 
     // styles HOC, OwnProps, parent props passed
     const {classes,
@@ -112,38 +112,16 @@ const VolumeControlCH: React.FC<Props> = (props) => {
     }, [subscribeSignalName]);
         
     return (
-        <div className={classes.root}>
-            <Typography id="continuous-slider" gutterBottom>
-                Volume
-            </Typography>
-            <Grid container spacing={2}>
-                <Grid item>
-                    <Button value={sliderValue} onClick={() => handleClick(publishSignalName, sliderValue - 1)}>
-                        <VolumeDown />
-                    </Button>
-                </Grid>
-                <Grid item xs>
-                    <Slider {...rest} className={` ${style}`} value={sliderValue}
-                        min={MINPERCENT}
-                        max={MAXPERCENT}
-                        onChange={(e, val) => handleRawChange(e, publishSignalName, val as number)} 
-                        onChangeCommitted={(e, val) => handleChange(e, publishSignalName, val as number)}
-                        aria-labelledby="continuous-slider" 
-                    >
-                        {rest.children}
-                    </Slider>               
-                    </Grid>
-                <Grid item>
-                <Button 
-                    value={sliderValue}
-                    onClick={() => handleClick(publishSignalName, sliderValue + 1)}
-                    >
-                    <VolumeUp />
-                </Button>
-                </Grid>
-            </Grid>
-        </div>
+        <Slider {...rest} className={` ${style}`} value={sliderValue}
+            min={MINPERCENT}
+            max={MAXPERCENT}
+            onChange={(e, val) => handleRawChange(e, publishSignalName, val as number)} 
+            onChangeCommitted={(e, val) => handleChange(e, publishSignalName, val as number)}
+            aria-labelledby="continuous-slider" 
+        >
+            {rest.children}
+        </Slider>               
     );
 }
 
-export default withStyles(styles)(VolumeControlCH) as React.ComponentType<PublicProps>;
+export default withStyles(styles)(SliderMST) as React.ComponentType<PublicProps>;

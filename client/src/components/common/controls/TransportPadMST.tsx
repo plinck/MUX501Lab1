@@ -4,7 +4,7 @@ import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
 import { Container, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import ButtonCH from '../buttons/ButtonCH';
+import ButtonMST from '../buttons/ButtonMST';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
@@ -119,7 +119,7 @@ const TransportPadMST: React.FC<Props> = (props) => {
 
         function FormButton(button: MyButton) {
             return (
-                <ButtonCH {...rest}
+                <ButtonMST {...rest}
                     style={{                        
                         alignItems: "center",                
                         backgroundColor: "#bbdefb",
@@ -150,7 +150,7 @@ const TransportPadMST: React.FC<Props> = (props) => {
                         {button.symbol}
                         <br></br>
                         {!!button.alias && button.alias}
-                </ButtonCH>
+                </ButtonMST>
             );
         }
     

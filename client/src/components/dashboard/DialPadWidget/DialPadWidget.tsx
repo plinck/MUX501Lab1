@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import DialPadCH from '../../common/controls/DialPadCH';
+import DialPadMST from '../../common/controls/DialPadMST';
 
 const DialPadWidget = (props:any) => {
     return (
@@ -9,7 +9,7 @@ const DialPadWidget = (props:any) => {
                 <Typography variant="h5" style={{ fontStyle: "italic" }}>
                     DialPad:
                 </Typography>
-                <DialPadCH />
+                <DialPadMST />
             </CardContent>
         </Card>
     )
