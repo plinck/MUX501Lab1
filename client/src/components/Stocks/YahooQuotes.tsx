@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Grid, WithStyles, createStyles, Theme, withStyles, Typography} from '@material-ui/core';
+import { Grid, WithStyles, createStyles, Theme, withStyles, Typography, Button} from '@material-ui/core';
 import { StyleRules } from "@material-ui/core/styles";
 import axios from "axios";
+import { Firebase } from "../Auth/Firebase/Firebase";
 
 const styles: (theme: Theme) => StyleRules<string> = theme =>
   createStyles({
@@ -74,6 +75,24 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
     // State
     const [symbolQuotes, setSymbolQuotes] = useState(Array<Quote>());
 
+    const getStockQuotes = ((symbols: string) => {
+        const firebase = new Firebase();
+
+        if (symbols && symbols !== "") {
+            const request = {symbols};
+            
+            const getStocks = firebase.functions.httpsCallable('getStocks');
+            getStocks(request).then((res:any) => {
+                // Read result of the Cloud Function.
+                console.log(`Stock res: ${res}`);
+            }).catch((err: Error) => {
+                console.error(`${err}`);
+            });
+        } else {
+            console.error(`No challengeUid Found, cant recalc totals`);
+        }
+    });
+
     useEffect(() => {
         let URIRequest = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/qu/quote/AAPL,MSFT";
         
@@ -107,6 +126,14 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
 
     return (
         <Grid container className={classes.root} justify="center">
+            <Button 
+                onClick={() => getStockQuotes(symbols)}
+                variant="contained"
+                color="primary"
+                className={classes.button}>
+                Delete Actitiies Past Challenge End
+            </Button>
+
             <Grid className={classes.grid} container item xs={12} spacing={3}>
                 <Grid className={classes.gridItem} container item xs={4} spacing={0} >
                     Ticker
