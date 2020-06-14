@@ -11,7 +11,7 @@ exports.getStocks = functions.https.onCall((req:any, context:any) => {
     return new Promise((resolve, reject) => {
         console.log(`called getStocks with request`);
         console.log(req);
-        let URIRequest = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/qu/quote/AAPL,MSFT";
+        const URIRequest = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/qu/quote/AAPL,MSFT";
         
         axios.get(URIRequest,
             { headers: { 
@@ -22,7 +22,7 @@ exports.getStocks = functions.https.onCall((req:any, context:any) => {
             // console.log(`Success retrieving data: ${JSON.stringify(res.data)}`);
 
             let quotes: Array<Quote> = Array<Quote>();
-            let responses: any = res.data;
+            const responses: any = res.data;
 
             quotes = responses.map((data: any) => {
                 const myQuote: Quote = new Quote();
@@ -34,7 +34,7 @@ exports.getStocks = functions.https.onCall((req:any, context:any) => {
                 return myQuote;
             });
             // setSymbolQuotes(quotes);
-            // console.log(quotes);
+            console.log(quotes);
 
         }).catch((err: Error) => {
             console.error(err);

@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
 
-let FUNCTIONS_CONFIG = functions.config().env;
+const FUNCTIONS_CONFIG = functions.config().env;
 
 const APP_CONFIG = {
     ORG : functions.config().env.app.org,
