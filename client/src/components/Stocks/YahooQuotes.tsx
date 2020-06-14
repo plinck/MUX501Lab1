@@ -75,21 +75,22 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
     // State
     const [symbolQuotes, setSymbolQuotes] = useState(Array<Quote>());
 
-    const testFunctions = ((sym: string) => {
+    const testFunctions = ((symbols: string) => {
         const firebase = new Firebase();
         console.log(firebase);
 
-        // if (symbols && symbols !== "") {
-        //     const request = {"symbols": symbols};
+        if (symbols && symbols !== "") {
+            const request = {"symbols": symbols};
             
-            // const testFunctions = firebase.functions.httpsCallable('testFunctions');
+            const testFunctions = firebase.functions.httpsCallable('testFunctions');
         
-            // testFunctions({"uid": "paul"}).then(function(res) {
-            //   // Read result of the Cloud Function.
-            //   var messageSentBack = res.data.message;
-            //   console.log(`return message from cloud function: ${messageSentBack}`)
-            //   // ...
-            // });
+            testFunctions({"uid": "paul"}).then(function(res) {
+              // Read result of the Cloud Function.
+              var messageSentBack = res.data.message;
+              console.log(`return message from cloud function: ${messageSentBack}`)
+              // ...
+            });
+        }
     
         //     getStocks(request).then((res:any) => {
         //         // Read result of the Cloud Function.
@@ -99,7 +100,6 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
         //     });
         // } else {
         //     console.error(`No challengeUid Found, cant recalc totals`);
-        // }
     });
 
     // useEffect(() => {
