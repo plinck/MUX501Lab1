@@ -75,59 +75,68 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
     // State
     const [symbolQuotes, setSymbolQuotes] = useState(Array<Quote>());
 
-    const getStockQuotes = ((symbols: string) => {
+    const testFunctions = ((sym: string) => {
         const firebase = new Firebase();
+        console.log(firebase);
 
-        if (symbols && symbols !== "") {
-            const request = {"symbols": symbols};
+        // if (symbols && symbols !== "") {
+        //     const request = {"symbols": symbols};
             
-            const getStocks = firebase.functions.httpsCallable('getStocks');
-            getStocks(request).then((res:any) => {
-                // Read result of the Cloud Function.
-                console.log(`Stock res: ${res}`);
-            }).catch((err: Error) => {
-                console.error(`${err}`);
-            });
-        } else {
-            console.error(`No challengeUid Found, cant recalc totals`);
-        }
+            // const testFunctions = firebase.functions.httpsCallable('testFunctions');
+        
+            // testFunctions({"uid": "paul"}).then(function(res) {
+            //   // Read result of the Cloud Function.
+            //   var messageSentBack = res.data.message;
+            //   console.log(`return message from cloud function: ${messageSentBack}`)
+            //   // ...
+            // });
+    
+        //     getStocks(request).then((res:any) => {
+        //         // Read result of the Cloud Function.
+        //         console.log(`Stock res: ${res}`);
+        //     }).catch((err: Error) => {
+        //         console.error(`${err}`);
+        //     });
+        // } else {
+        //     console.error(`No challengeUid Found, cant recalc totals`);
+        // }
     });
 
-    useEffect(() => {
-        let URIRequest = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/qu/quote/AAPL,MSFT";
+    // useEffect(() => {
+    //     let URIRequest = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/qu/quote/AAPL,MSFT";
         
-        axios.get(URIRequest,
-            { headers: { 
-                "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com",
-                "x-rapidapi-key": `${process.env.REACT_APP_RAPIDYAHAOO_API_KEY}`
-            } 
-        }).then((res) => {
-            // console.log(`Success retrieving data: ${JSON.stringify(res.data)}`);
+    //     axios.get(URIRequest,
+    //         { headers: { 
+    //             "x-rapidapi-host": "yahoo-finance15.p.rapidapi.com",
+    //             "x-rapidapi-key": `${process.env.REACT_APP_RAPIDYAHAOO_API_KEY}`
+    //         } 
+    //     }).then((res) => {
+    //         // console.log(`Success retrieving data: ${JSON.stringify(res.data)}`);
 
-            let quotes: Array<Quote> = Array<Quote>();
-            let responses: any = res.data;
+    //         let quotes: Array<Quote> = Array<Quote>();
+    //         let responses: any = res.data;
 
-            quotes = responses.map((data: any) => {
-                const myQuote: Quote = new Quote();
+    //         quotes = responses.map((data: any) => {
+    //             const myQuote: Quote = new Quote();
 
-                myQuote.symbolName = data.symbol;
-                myQuote.price = data.regularMarketPrice;
-                myQuote.change = data.regularMarketChange;
+    //             myQuote.symbolName = data.symbol;
+    //             myQuote.price = data.regularMarketPrice;
+    //             myQuote.change = data.regularMarketChange;
 
-                return myQuote;
-            });
-            setSymbolQuotes(quotes);
-            // console.log(quotes);
+    //             return myQuote;
+    //         });
+    //         setSymbolQuotes(quotes);
+    //         // console.log(quotes);
 
-        }).catch((err: Error) => {
-            console.error(err);
-        });
-    }, []);
+    //     }).catch((err: Error) => {
+    //         console.error(err);
+    //     });
+    // }, []);
 
     return (
         <Grid container className={classes.root} justify="center">
             <Button 
-                onClick={() => getStockQuotes("AAPL")}
+                onClick={() => { testFunctions("AAPL") }}
                 variant="contained"
                 color="primary"
                 className={classes.button}>

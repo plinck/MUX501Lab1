@@ -14,6 +14,12 @@ exports.getStocks = functions.https.onCall((req:any, context:any):any => {
     });
 });
 
+exports.testFunctions = functions.https.onCall((req, res) => {
+    console.log(`called testFunction with req ${JSON.stringify(req)}`)
+    return {message: "response OK"};
+});
+
+
 exports.getStocksNew = functions.https.onCall((req:any, context:any):any => {
     console.log(`called getStocks`);
     return new Promise((resolve, reject) => {
