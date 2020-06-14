@@ -1,5 +1,5 @@
 {
-  "name": "ch5-react-sample",
+  "name": "mux501",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,12 +8,14 @@
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
     "@types/classnames": "^2.2.10",
+    "@types/firebase": "^3.2.1",
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "@types/react-grid-layout": "^0.17.1",
     "@types/react-router-dom": "^5.1.5",
     "classnames": "^2.2.6",
+    "firebase": "^7.15.1",
     "ncp": "^2.0.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -32,7 +34,8 @@
     "build-and-serve": "npm run build && npm run serve",
     "build:archive": "npx ch5-cli archive -p ch5-react -P samplesource=ch5-react -d build -o dist",
     "build:deploy": "npx ch5-cli deploy -p -H panel -t touchscreen dist/ch5-react.ch5z",
-    "build:onestep": "npm run build && npm run build:archive && npm run build:deploy"
+    "build:onestep": "npm run build && npm run build:archive && npm run build:deploy",
+    "deployfunctions": "cd functions && npm run setenv && firebase deploy --only functions && cd .."
   },
   "eslintConfig": {
     "extends": "react-app"

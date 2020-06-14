@@ -79,7 +79,7 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
         const firebase = new Firebase();
 
         if (symbols && symbols !== "") {
-            const request = {symbols};
+            const request = {"symbols": symbols};
             
             const getStocks = firebase.functions.httpsCallable('getStocks');
             getStocks(request).then((res:any) => {
@@ -127,11 +127,11 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
     return (
         <Grid container className={classes.root} justify="center">
             <Button 
-                onClick={() => getStockQuotes(symbols)}
+                onClick={() => getStockQuotes("AAPL")}
                 variant="contained"
                 color="primary"
                 className={classes.button}>
-                Delete Actitiies Past Challenge End
+                Get Quotes
             </Button>
 
             <Grid className={classes.grid} container item xs={12} spacing={3}>

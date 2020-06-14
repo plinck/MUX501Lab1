@@ -7,7 +7,15 @@ import { REACT_APP_RAPIDYAHAOO_API_KEY } from "./modules/Environment";
 
 admin.initializeApp(functions.config().firebase);
 
-exports.getStocks = functions.https.onCall((req:any, context:any) => {
+exports.getStocks = functions.https.onCall((req:any, context:any):any => {
+    console.log(`called getStocks`);
+    return new Promise((resolve, reject) => {
+        resolve({data: "Text"});
+    });
+});
+
+exports.getStocksNew = functions.https.onCall((req:any, context:any):any => {
+    console.log(`called getStocks`);
     return new Promise((resolve, reject) => {
         console.log(`called getStocks with request`);
         console.log(req);
@@ -35,9 +43,11 @@ exports.getStocks = functions.https.onCall((req:any, context:any) => {
             });
             // setSymbolQuotes(quotes);
             console.log(quotes);
+            resolve(quotes);
 
         }).catch((err: Error) => {
             console.error(err);
+            reject(err);
         });
     });
 });

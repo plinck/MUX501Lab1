@@ -1,20 +1,20 @@
 {
   "name": "functions",
   "scripts": {
+    "lint": "tslint --project tsconfig.json",
     "build": "tslint --project tsconfig.json && tsc",
     "watch": "tsc --watch",
-    "lint": "tslint --project tsconfig.json",
-    "serve": "npm run build && firebase emulators:start --only functions",
-    "shell": "npm run build && firebase functions:shell",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "logs": "firebase functions:log",
     "deploy": "cd .. && npm run build && cd functions && npm run setenv && cd .. && firebase deploy",
     "deployhost": "cd .. && npm run build && cd functions && npm run setenv && cd .. && firebase deploy --except functions",
     "deployfunctions": "npm run setenv && firebase deploy --only functions",
-    "setenv": "test -f .env-config.json && firebase functions:config:unset env && firebase functions:config:set env=\"$(cat .env-config.json)\""
-  },
+    "setenv": "test -f .env-config.json && firebase functions:config:unset env && firebase functions:config:set env=\"$(cat .env-config.json)\"",
+    "logs": "firebase functions:log"
+},
   "engines": {
-    "node": "8"
+    "node": "10"
   },
   "main": "lib/index.js",
   "dependencies": {
