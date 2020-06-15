@@ -7,20 +7,12 @@ import { REACT_APP_RAPIDYAHAOO_API_KEY } from "./modules/Environment";
 
 admin.initializeApp(functions.config().firebase);
 
-exports.getStocks = functions.https.onCall((req:any, context:any):any => {
-    console.log(`called getStocks`);
-    return new Promise((resolve, reject) => {
-        resolve({data: "Text"});
-    });
-});
-
 exports.testFunctions = functions.https.onCall((req, res) => {
     console.log(`called testFunction with req ${JSON.stringify(req)}`)
     return {message: "response OK"};
 });
 
-
-exports.getStocksNew = functions.https.onCall((req:any, context:any):any => {
+exports.getStocks = functions.https.onCall((req:any, context:any):any => {
     console.log(`called getStocks`);
     return new Promise((resolve, reject) => {
         console.log(`called getStocks with request`);
@@ -33,8 +25,7 @@ exports.getStocksNew = functions.https.onCall((req:any, context:any):any => {
                 "x-rapidapi-key": `${REACT_APP_RAPIDYAHAOO_API_KEY}`
             } 
         }).then((res) => {
-            // console.log(`Success retrieving data: ${JSON.stringify(res.data)}`);
-
+            console.log(`Success retrieving data: ${JSON.stringify(res.data)}`);
             let quotes: Array<Quote> = Array<Quote>();
             const responses: any = res.data;
 
