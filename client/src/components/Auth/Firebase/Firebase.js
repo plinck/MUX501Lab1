@@ -1,4 +1,5 @@
 import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/functions';
 
 const FB_CONFIG = {
@@ -11,6 +12,17 @@ const FB_CONFIG = {
   APP_ID:process.env.REACT_APP_APP_ID,
   MEASUREMENT_ID:process.env.REACT_APP_MEASUREMENT_ID,
 }
+const firebaseConfig = {
+  apiKey: FB_CONFIG.API_KEY,
+  authDomain: FB_CONFIG.AUTH_DOMAIN,
+  databaseURL: FB_CONFIG.DATABASE_URL,
+  projectId: FB_CONFIG.PROJECT_ID,
+  storageBucket: FB_CONFIG.STORAGE_BUCKET,
+  messagingSenderId: FB_CONFIG.MESSAGING_SENDER_ID,
+  appId: FB_CONFIG.APP_ID,
+  measurementId: FB_CONFIG.MEASUREMENT_ID
+};
+
 
 // Firebase state already initialized so we dont do more that once
 // Kinda like a statuc property
@@ -20,7 +32,8 @@ class Firebase {
   constructor() {
     try {
       if (!this.firebaseInialized) {
-        firebase.initializeApp(FB_CONFIG);
+        console.log(`FB_ONFIG: ${JSON.stringify(firebaseConfig,null,4)}`);
+        firebase.initializeApp(firebaseConfig);
         this.firebaseInialized = true;
       }
     } catch (err) {
@@ -31,6 +44,7 @@ class Firebase {
       }
     }
 
+    this.auth = firebase.auth();
     this.functions = firebase.functions();
   }
 }

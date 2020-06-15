@@ -1,98 +1,82 @@
 import React, { useState, useEffect } from "react";
-import { Grid, WithStyles, createStyles, Theme, withStyles, Typography, Button} from '@material-ui/core';
+import { Grid, makeStyles, Typography, Button} from '@material-ui/core';
 import { StyleRules } from "@material-ui/core/styles";
 import axios from "axios";
 import { Firebase } from "../Auth/Firebase/Firebase";
 
-const styles: (theme: Theme) => StyleRules<string> = theme =>
-  createStyles({
-        root: {
-            flexGrow: 1,
-            padding: theme.spacing(0),
-            margin: "0",
-            textAlign: 'center',
-            alignContent: "center",
-            alignItems: "center",
-            justifyContent: "center",
-            justifyItems: "center",
-            width:350,
-            backgroundColor: "f2f2f2"
-        },
-        grid: {
-            padding: theme.spacing(0),
-            textAlign: 'center',
-            justifyContent: "center",
-            justifyItems: "center",
-            margin: "0",
-            backgroundColor: "transparent",
-            maxWidth:"100%",
-            flexBasis:"100%"
-        },
-        gridItem: {
-            padding: theme.spacing(0),
-            justifyContent: "center",
-            justifyItems: "center",
-            margin: "0"
-        },
-        text: {
-            marginBottom: "-10px"
-        },
-        noWrap: {
-            whiteSpace: "nowrap",
-            overflow: 'hidden',
-            [theme.breakpoints.down('sm')]: {
-                marginRight: "1px"
-            }
-        },
-        caption: {
-            fontStyle: "italic"
-        },
-        mobile: {
-            [theme.breakpoints.down('sm')]: {
-                display: "none"
-            }
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+        padding: theme.spacing(0),
+        margin: "0",
+        textAlign: 'center',
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        justifyItems: "center",
+        width:350,
+        backgroundColor: "f2f2f2"
+    },
+    grid: {
+        padding: theme.spacing(0),
+        textAlign: 'center',
+        justifyContent: "center",
+        justifyItems: "center",
+        margin: "0",
+        backgroundColor: "transparent",
+        maxWidth:"100%",
+        flexBasis:"100%"
+    },
+    gridItem: {
+        padding: theme.spacing(0),
+        justifyContent: "center",
+        justifyItems: "center",
+        margin: "0"
+    },
+    text: {
+        marginBottom: "-10px"
+    },
+    noWrap: {
+        whiteSpace: "nowrap",
+        overflow: 'hidden',
+        [theme.breakpoints.down('sm')]: {
+            marginRight: "1px"
         }
-    });
-
-    
-class Quote {
-    symbolName: string;
-    price: number;
-    change: number;
-    
-    constructor() {
-        this.symbolName = "";
-        this.price = 0;
-        this.change = 0;
+    },
+    caption: {
+        fontStyle: "italic"
+    },
+    mobile: {
+        [theme.breakpoints.down('sm')]: {
+            display: "none"
+        }
     }
-}
+}));
+    
+const YahooQuotes = (props) => {
 
-type Props = WithStyles<typeof styles>;
-
-const YahooQuotes: React.FC<Props> = (props: any) => {
-    const {classes} = props;
+    const classes = useStyles();
 
     // State
-    const [symbolQuotes, setSymbolQuotes] = useState(Array<Quote>());
+    const [symbolQuotes, setSymbolQuotes] = useState([]);
 
-    const testFunctions = ((symbols: string) => {
+    const testFunctions = (() => {
         const firebase = new Firebase();
         console.log(firebase);
-
-        if (symbols && symbols !== "") {
-            const request = {"symbols": symbols};
             
-            const testFunctions = firebase.functions.httpsCallable('testFunctions');
-        
-            testFunctions({"uid": "paul"}).then(function(res) {
-              // Read result of the Cloud Function.
-              var messageSentBack = res.data.message;
-              console.log(`return message from cloud function: ${messageSentBack}`)
-              // ...
-            });
-        }
+        const testFunctions = firebase.functions.httpsCallable('testFunctions');
     
-        //     getStocks(request).then((res:any) => {
+        testFunctions({"uid": "paul"}).then(function(res) {
+            // Read result of the Cloud Function.
+            var messageSentBack = res.data.message;
+            console.log(`return message from cloud function: ${messageSentBack}`)
+            // ...
+        }).catch(err => {
+            console.log(err);
+        });
+    
+        // if (symbols && symbols !== "") {
+            //     getStocks(request).then((res:any) => {
         //         // Read result of the Cloud Function.
         //         console.log(`Stock res: ${res}`);
         //     }).catch((err: Error) => {
@@ -136,7 +120,7 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
     return (
         <Grid container className={classes.root} justify="center">
             <Button 
-                onClick={() => { testFunctions("AAPL") }}
+                onClick={testFunctions}
                 variant="contained"
                 color="primary"
                 className={classes.button}>
@@ -179,4 +163,4 @@ const YahooQuotes: React.FC<Props> = (props: any) => {
     )
 }
 
-export default withStyles(styles)(YahooQuotes) as React.ComponentType;
+export default YahooQuotes;
